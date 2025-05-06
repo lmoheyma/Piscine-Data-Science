@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=lmoheyma
+      - POSTGRES_DB=piscineds
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    ports:
+      - 8888:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=lmoheyma@student.42.fr
+      - PGADMIN_DEFAULT_PASSWORD=mysecretpassword
